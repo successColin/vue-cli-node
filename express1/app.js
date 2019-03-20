@@ -22,10 +22,19 @@ app.set('view engine', 'ejs');
 // app.engine('.html', require('ejs').__express);
 // app.set('view engine', 'html');
 
+app.all("*",function (req,res,next) {
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By",' 3.2.1');
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
+})
+
 // cors 跨域
 app.use(cors({
   // 允许访问链接
-  origin:['http://localhost:8080'],
+  origin:['http://localhost:8080', 'http://localhost:80'],
   // 允许状态为 200
   optionsSuccessStatus: 200,
   methods:['GET','POST']
