@@ -9,6 +9,11 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login')
+    },
+    {
       path: '/',
       name: 'todo',
       component: () => import('@/views/todo')
@@ -27,6 +32,24 @@ export default new Router({
       path: '/floor',
       name: 'floor',
       component: () => import('@/views/floor')
+    },
+    {
+      path: '/boot',
+      name: 'boot',
+      component: () => import('@/views/boot')
+    },
+    {
+      path: '/merge',
+      name: 'merge',
+      component: () => import('@/views/merge')
+    },{
+      path: '/code',
+      name: 'code',
+      component: () => import('@/views/code')
+    },{
+      path: '/table',
+      name: 'table',
+      component: () => import('@/views/table')
     }
   ]
 })

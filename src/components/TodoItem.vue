@@ -60,6 +60,7 @@ export default {
 <style lang='scss' scoped>
   $width: 70%;
   .container {
+    background: #2598d1;   // #babec0
     .content {
       width: $width;
       margin: 0 auto;

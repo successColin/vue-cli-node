@@ -1,4 +1,4 @@
-const user = {
+const todo = {
   state: {
     name: [],
     success: [],
@@ -36,4 +36,4 @@ const user = {
   }
 }
 
-export default user
+export default todo

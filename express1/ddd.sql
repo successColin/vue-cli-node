@@ -41,3 +41,14 @@ INSERT INTO `person` VALUES ('8', '刘八', '25', '计算机科学与技术');
 INSERT INTO `person` VALUES ('9', '张九', '25', '计算机科学与技术');
 INSERT INTO `person` VALUES ('10', '郑十', '25', '计算机科学与技术');
 SET FOREIGN_KEY_CHECKS=1;
+
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE `login`(
+  `uname` varchar(255) DEFAULT NULL,
+  `upwd` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of login
+-- ----------------------------
+INSERT INTO `login` VALUES ('admin', '123456');

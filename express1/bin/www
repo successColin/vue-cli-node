@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');//  修改端口号
+var port = normalizePort(process.env.PORT || '3000');//  修改端口号 //想实现公网IP访问的条件之一,监听这个0.0.0.0就对了
 app.set('port', port);
 
 /**

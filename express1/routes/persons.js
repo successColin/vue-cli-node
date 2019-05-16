@@ -11,7 +11,7 @@ var db = require("./db.js");
 /**
  * 查询列表页
  */
-router.get("/", function(req, res, next) {
+router.get("/", function(req, res) {
   db.query("select * from person", function(err, rows) {
     if (err) {
       res.send('没有数据')

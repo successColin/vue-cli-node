@@ -26,14 +26,29 @@
           <router-link to="persons" style="width: 200px; text-align: center;line-height: 50px;">开奖</router-link>
         </div>
       </div>
+      <el-button @click="handleBoot" style="margin-top: 100px;">响应式布局</el-button>
+      <el-button @click="handleLogin" style="margin-top: 100px;">登录</el-button>
+      <el-button @click="handleCode" style="margin-top: 100px;">验证码</el-button>
+      <el-button @click="handleTable" style="margin-top: 100px;">表格合并</el-button>
+      <el-button @click="handleMoment" style="margin-top: 100px;">时间 moment 组件库</el-button>
+      <el-button>
+        <i class="el-icon-edit"></i>
+        <svg-icon iconClass="eye"/>
+      </el-button>
+      <!-- <lang-select></lang-select> -->
+      <!-- <div>
+        <span>{{$t('name')}}</span>
+      </div> -->
+
     </todo-item>
   </div>
 </template>
 <script>
 import TodoItem from '@/components/TodoItem'
+// import LangSelect from '@/components/LangSelect'
 
 export default {
-  components: {TodoItem},
+  components:{TodoItem},
   data () {
     return {
       input: '',
@@ -42,6 +57,9 @@ export default {
     }
   },
   methods: {
+    handleBoot () {
+      this.$router.push({path: 'boot'})
+    },
     enterIn () {
       this.seen = true
     },
@@ -54,23 +72,17 @@ export default {
     leaveName () {
       this.message = '开奖名字'
     },
+    handleLogin () {
+      this.$router.push({path: 'login'})
+    },
     handleJump () {
       this.$router.push({path: 'floor'})
     },
     handleJson () {
       this.$router.push({path: 'persons'})
-      // axios.get('http://localhost:3000').then(res => {
-      //   console.log(res.data)
-      // })
-      // axios.get('http://localhost:3000/users').then(res => {
-      //   console.log(res.data)
-      // })
-      // axios.get('http://localhost:3000/users/first').then(res => {
-      //   console.log(res.data)
-      // })
-      // axios.post('http://localhost:3000/users/cc').then(res => {
-      //   console.log(res.data)
-      // })
+    },
+    handleCode () {
+      this.$router.push({path: 'code'})
     },
     onEnter () {
       if (this.input === '') {
@@ -79,16 +91,41 @@ export default {
         this.$store.commit('Add_Name', {label: this.input, state: false})
         this.input = ''
       }
+    },
+    handleTable () {
+      this.$router.push({path: 'table'})
+    },
+    handleMoment () {
+      // 一、安装：npm install moment --save
+      // 二、在main.js中导入：
+      // import moment from 'moment'
+      // Vue.prototype.$moment = moment
+      // 三、使用：let nowTime = this.$moment().format('Y-MM-DD')
+      var day = this.$moment().format('YYYY-MM-DD HH:mm:ss')
+      console.log(day)
     }
   },
   computed: {
     name () {
       return this.$store.state.todo.name
+    },
+    options() {
+      return {
+        clearOffset: 0.4
+      }
     }
   }
 }
 </script>
 <style lang='scss' scoped>
+  .router2 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
   $height: 70px;
   div {
     padding: 0;
@@ -97,7 +134,6 @@ export default {
   .container {
     width: 100%;
     height: calc(100vh - 70px);
-    background: #babec0;
     .h {
       background: #061820;
       .header {

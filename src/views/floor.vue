@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="section" v-for="(item, index) in page" :key="'page'+index" :style="{'height': 'page' + index === 'page' + 0 ? '1000px': '500px'}">
+    <div class="section" v-for="(item, index) in page" :key="'page'+index" :style="{'height': 'page' + index === 'page' + 0 ? '2000px': '500px'}">
       <div style="text-align: center;line-height: 500px;" :style="{'background': item.background}">
         <div>
           {{item.name}}
@@ -55,13 +55,14 @@ export default {
         }
       }
     },
-    dataScroll: function() {
+    dataScroll () {
       this.scroll = document.documentElement.scrollTop || document.body.scrollTop
       // console.log(this.scroll)
     },
     jump (index) {
       let jump = document.getElementsByClassName("section")
       // 获取需要滚动的距离
+      console.log(jump)
       let total = jump[index].offsetTop
       // // Chrome
       document.body.scrollTop = total
